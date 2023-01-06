@@ -1,0 +1,144 @@
+body {
+
+    background-color: #cccccc;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.logo {
+
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 40px;
+
+}
+
+.titulo {
+    text-align: center;
+    margin: 10px auto;
+    font-weight: bold;
+
+}
+
+.principal {
+    width: auto;
+    position: absolute;
+    top: 80px;
+    left: 60px;
+}
+
+.input-msg-layout {
+
+    width: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #909;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #005b96;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #005b96;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #005b96;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #005b96;
+}
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    color: #005b96;
+}
+
+.input-text {
+
+    width: 100%;
+    height: 350px;
+    font-size: 20px;
+    color: blue;
+
+
+}
+
+
+
+.info-msg {
+
+    margin: 05px 0;
+}
+
+
+.encrypt-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 24px;
+    background: #0A3871;
+    margin: 0 5px 0 0;
+    color: white;
+    font-weight: bold;
+}
+
+.decrypt-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 24px;
+    background: #D8DFE8;
+    margin: 0 5px 0 0;
+    color: blue;
+    font-weight: bold;
+}
+
+.container-group {
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.output-msg-layout {
+    padding: 20px;
+    width: 250px;
+    height: 400px;
+    /* border: solid black 1px; */
+    margin: 0 30px;
+    background: #FFFFFF;
+    /* shadow */
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+}
+
+.output-msg-layout img {
+    width: 250px;
+    margin: 0 auto;
+   
+}
+
+.output-msg-layout h2 {
+    margin: 20px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.output-msg-layout h3 {
+
+    text-align: center;
+}
