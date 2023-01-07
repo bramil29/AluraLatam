@@ -159,6 +159,20 @@ body {
 }
 
 
+#copyButton {
+    position: absolute;
+    bottom: 0px;
+    display: none;
+    width: 250px;
+    height: 35px;
+    border-radius: 24px;
+    background: white;
+    margin: 10px;
+    color: blue;
+    font-weight: bold;
+}
+
+
 
 footer {
 

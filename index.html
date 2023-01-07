@@ -30,7 +30,6 @@
 
         }
 
-
         function encryptFunction() {
             var textoEncriptado = "";
             var textarea = document.getElementsByClassName("input-text")[0];
@@ -60,6 +59,7 @@
             document.getElementById("defaultImage").children[1].style.display = "none";
             document.getElementById("defaultImage").children[2].style.display = "none";
             document.getElementById("defaultImage").children[3].style.display = "none";
+            document.getElementById("copyButton").style.display = "block";
             document.getElementById("showMsg").style.display = "block";
             document.getElementById("showMsg").innerHTML = textoEncriptado;
             textarea.value = "";
@@ -98,6 +98,22 @@
             document.getElementById("showMsg").style.display = "block";
             document.getElementById("showMsg").innerHTML = textToDesencryp;
 
+        }
+
+
+        async function copyFunction() {
+            try {
+                var textarea = document.getElementsByClassName("input-text")[0];
+                // Get the text field
+                var copyText = document.getElementById("showMsg").innerHTML;
+
+                await navigator.clipboard.writeText(copyText);
+                //console.log('Content copied to clipboard');
+                /* Resolved - text copied to clipboard successfully */
+            } catch (err) {
+                //console.error('Failed to copy: ', err);
+                /* Rejected - text failed to copy to the clipboard */
+            }
         }
     </script>
 
@@ -142,6 +158,9 @@
                     </li>
                     <li>
                         <h3>Ingresa el texto que deseas encriptar o descentriptar</h3>
+                    </li>
+                    <li>
+                        <button onclick="copyFunction()" id="copyButton">Copiar</button>
                     </li>
                 </ul>
             </div>
