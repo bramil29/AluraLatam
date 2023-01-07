@@ -9,7 +9,97 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
+    <script type="text/javascript">
+        function onlyLettersAndSpaces(str) {
+            return /^[A-Za-z\s]*$/.test(str);
+        }
 
+        //para convertir en tiempo real a minuscula y no utilizar letras con acentos ni caracteres especiales
+        function toLowerCase(textarea) {
+            var regex = /^[\w\-\s]+$/;
+            var inputText = textarea.value;
+
+            if (onlyLettersAndSpaces(inputText)) {
+                inputText = inputText.toLowerCase();
+                textarea.value = inputText;
+            } else {
+                textarea.value = "";
+                alert("Valor incorrecto." + "\n" + "Intente de nuevo.");
+
+            }
+
+        }
+
+
+        function encryptFunction() {
+            var textoEncriptado = "";
+            var textarea = document.getElementsByClassName("input-text")[0];
+            var inputText = textarea.value;
+            for (var i = 0; i < inputText.length; i++) {
+                var letter = inputText[i];
+                if (letter == ' ') { //verificamos si es un espacio
+                    textoEncriptado += ' ';
+
+                } else {
+                    if (letter == 'e') {
+                        textoEncriptado += 'enter';
+                    } else if (letter == 'i') {
+                        textoEncriptado += 'imes';
+                    } else if (letter == 'a') {
+                        textoEncriptado += 'ai';
+                    } else if (letter == 'o') {
+                        textoEncriptado += 'ober';
+                    } else if (letter == 'u') {
+                        textoEncriptado += 'ufat';
+                    } else {
+                        textoEncriptado += letter;
+                    }
+
+                }
+            }
+            document.getElementById("defaultImage").children[1].style.display = "none";
+            document.getElementById("defaultImage").children[2].style.display = "none";
+            document.getElementById("defaultImage").children[3].style.display = "none";
+            document.getElementById("showMsg").style.display = "block";
+            document.getElementById("showMsg").innerHTML = textoEncriptado;
+            textarea.value = "";
+            //alert(textoEncriptado);
+
+        }
+
+
+        function decryptFunction() {
+
+            //var textoEncriptado = document.getElementById("showMsg").innerHTML;
+            // var textarea = document.getElementsByClassName("input-text")[0];
+            var textToDesencryp = document.getElementsByClassName("input-text")[0].value;
+
+            if (textToDesencryp.includes("ai")) {
+                textToDesencryp = textToDesencryp.replaceAll("ai", "a");
+            }
+            if (textToDesencryp.includes("enter")) {
+                textToDesencryp = textToDesencryp.replaceAll("enter", "e");
+            }
+            if (textToDesencryp.includes("imes")) {
+                textToDesencryp = textToDesencryp.replaceAll("imes", "i");
+            }
+
+            if (textToDesencryp.includes("ober")) {
+                textToDesencryp = textToDesencryp.replaceAll("ober", "o");
+            }
+            if (textToDesencryp.includes("ufat")) {
+                textToDesencryp = textToDesencryp.replaceAll("ufat", "u");
+            }
+
+
+            document.getElementById("defaultImage").children[1].style.display = "none";
+            document.getElementById("defaultImage").children[2].style.display = "none";
+            document.getElementById("defaultImage").children[3].style.display = "none";
+            document.getElementById("showMsg").style.display = "block";
+            document.getElementById("showMsg").innerHTML = textToDesencryp;
+
+        }
+    </script>
 
 </head>
 
@@ -19,9 +109,7 @@
         <img class="logo" src="imagenes/alura_oracle.png">
 
     </header>
-
     <main>
-
         <section class="principal">
 
             <div class="container-group">
@@ -30,19 +118,24 @@
                         <h1 class="titulo">Encriptador de texto</h1>
                     </li>
                     <li>
-                        <textarea type="text" placeholder="Ingresar texto aquí" class="input-text"></textarea>
+                        <textarea type="text" onkeypress="toLowerCase(this);" placeholder="Ingresar texto aquí"
+                            class="input-text"></textarea>
                     </li>
                     <li>
                         <div class="action-buttons">
                             <h3 class="info-msg">&#x1F6C8; solo letras minúscula y sin acento</h3>
-                            <button class="encrypt-button">Encriptar</button>
-                            <button class="decrypt-button">Desencriptar</button>
+                            <button type="button" onclick="encryptFunction()" class="encrypt-button">Encriptar</button>
+                            <button type="button" onclick="decryptFunction()"
+                                class="decrypt-button">Desencriptar</button>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="container-group">
-                <ul class="output-msg-layout">
+                <ul id="defaultImage" class="output-msg-layout">
+                    <li>
+                        <h1 id="showMsg">Encrypted Message</h1>
+                    </li>
                     <li><img src="imagenes/searching.PNG"></li>
                     <li>
                         <h2>Ningún mensaje fue encontrado</h2>
@@ -54,13 +147,21 @@
             </div>
 
         </section>
-
     </main>
-
     <footer>
-
-
+        <img src="imagenes/foto2x2.PNG">
+        <ul>
+            <li>
+                <h3>Bramil García</h3>
+            </li>
+            <li>
+                <h3>bramil_garcia29@hotmail.com</h3>
+            </li>
+            <li>
+                <p style="margin: 08px auto;" class="copyright">&copy Copyright Encriptador de texto - 2023</p< /li>
+        </ul>
     </footer>
+
 </body>
 
 </html>
